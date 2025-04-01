@@ -1,4 +1,8 @@
 #dir
+# 忽略 Renderer 目录下的特定文件
+Renderer/Renderer.vcxproj
+Renderer/Renderer.vcxproj.filters
+
 .vs/
 bin/
 bin-int/
