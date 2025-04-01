@@ -3,6 +3,7 @@
 #define __IMAGE_H__
 
 #include <fstream>
+#include "geometry.h"
 
 #pragma pack(push,1)
 struct TGA_Header {
@@ -32,6 +33,11 @@ struct TGAColor {
 		unsigned int val;
 	};
 	int bytespp;
+
+	TGAColor(Vec3f val, float b) :
+		r(val.x),g(val.y),b(val.z),a(b)
+	{
+	}
 
 	TGAColor() : val(0), bytespp(1) {
 	}
