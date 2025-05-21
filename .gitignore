@@ -6,3 +6,4 @@ Renderer/Renderer.vcxproj.filters
 .vs/
 bin/
 bin-int/
+vendor/

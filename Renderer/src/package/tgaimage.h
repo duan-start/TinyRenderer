@@ -1,9 +1,7 @@
-
-#ifndef __IMAGE_H__
-#define __IMAGE_H__
+#pragma once 
 
 #include <fstream>
-#include "geometry.h"
+#include <glm/glm.hpp>
 
 #pragma pack(push,1)
 struct TGA_Header {
@@ -34,7 +32,7 @@ struct TGAColor {
 	};
 	int bytespp;
 
-	TGAColor(Vec3f val, float b) :
+	TGAColor(const glm::vec3& val, float b) :
 		r(val.x),g(val.y),b(val.z),a(b)
 	{
 	}
@@ -98,7 +96,9 @@ public:
 	int get_bytespp();
 	unsigned char* buffer();
 	void clear();
+	
+	const int GetWidth() const { return width; }
+	const int GetHeight() const { return height; }
 };
 
-#endif //__IMAGE_H__
 
