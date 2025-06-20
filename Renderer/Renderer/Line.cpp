@@ -1,12 +1,12 @@
 #include "Line.h"
 #include <iostream>
 
-//贝尔曼直线画法
+//贝尔曼直线画法,核心画法
 void Line::Draw(const std::vector<glm::vec2>points, std::shared_ptr<TGAImage>&image, const TGAColor& color)
 {
     int x0 = points[0].x;
     int y0 = points[0].y;
-    int x1 = points[1].y;
+    int x1 = points[1].x;
     int y1 = points[1].y;
 	 bool steep = false;
 	//决定是画的方向，如果x的变化量比y的变化量大，那么就是沿着x轴画线，否则沿着y轴画线；

@@ -31,9 +31,15 @@ struct TGAColor {
 		unsigned int val;
 	};
 	int bytespp;
+	TGAColor(const glm::vec4& val):
+		r(val.x),g(val.y),b(val.z),a(val.w){ }
 
 	TGAColor(const glm::vec3& val, float b) :
 		r(val.x),g(val.y),b(val.z),a(b)
+	{
+	}
+	TGAColor(float x,float y,float z,float w) :
+		r(x), g(y), b(z), a(w)
 	{
 	}
 

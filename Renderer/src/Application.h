@@ -1,10 +1,7 @@
 #pragma once
 
 #include "ResourceManage.h"
-#include <memory>
-#pragma once
-
-#include "ResourceManage.h"
+#include "tgaimage.h"
 #include <memory>
 
 class Application {

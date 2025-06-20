@@ -14,7 +14,7 @@ struct SubMeshIndex {
 class Model {
 private:
 	std::vector<glm::vec3> m_VertexData;//存储顶点数据
-	std::vector<SubMeshIndex> m_MeshIndex;//存储绑定的纹理和顶点的缩影
+	std::vector<SubMeshIndex> m_MeshIndex;//存储绑定的纹理和顶点的索引
 	std::vector<glm::vec2> m_TexCoordData;//存储纹理数据
 public:
 	Model(const char *filename);
