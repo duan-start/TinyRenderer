@@ -1,17 +1,24 @@
 #include "ResourceManage.h"
 
 
+void ResourceManage::InitTexture(const std::string& texturePath)
+{
+	m_Texture = std::make_shared<Texture>(texturePath);
+}
+
+void ResourceManage::InitModel(const std::string& modelPath)
+{
+	m_Model = std::make_shared<Model>(modelPath.c_str());
+}
 
 void ResourceManage::Run()
 {
-	std::vector<glm::vec2> v = {{2,3},{200,300}};
-	std::vector<glm::vec2> t = { {2,3},{200,300},{400,100} };
-	//Line::Draw(v, m_Image,{255,255,255,255});
-	//Line::Draw(m_Model, m_Image);
-	//Triangle::Draw(t,m_Image);
-	Renderer::DrawMesh(m_Model, m_Image,m_MaterialSystem.GetMaterial(),m_LightSystem.GetLight());
-	//Renderer::Init();
-	//Renderer::BeginScene();
+	//test
+	auto wordpos = glm::mat4(1.0f);
+	auto& trans = wordpos[3];
+	trans.z += 3;
 
-	//Renderer::End();
+	Renderer::BeginScene(m_CameraContral.GetCamera(), wordpos);
+	Renderer::DrawMesh(m_Image, { m_Model,m_Texture,m_MaterialSystem.GetMaterial(),m_LightSystem.GetLight() });
+
 }

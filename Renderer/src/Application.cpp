@@ -2,7 +2,7 @@
 
 void Application::Run()
 {
-    m_Res = std::make_unique<ResourceManage>(m_Image,"assets/obj/head.obj"); // 初始化资源管理器
+    m_Res = std::make_unique<ResourceManage>(m_Image); // 初始化资源管理器
 
 	m_Res->Run();
     //图像坐标反转和写入原始的数据

@@ -1,10 +1,15 @@
 #include "Renderer.h"
+
 #include "Line.h"
 #include "Triangle.h"
+#include "Texture.h"
 //#include "tgaimage.h"
 
-void Renderer::Init()
+
+void Renderer::BeginScene(const Camera& camera,const glm::mat4& transform)
 {
+	m_Projection = camera.GetProjection()* glm::inverse(transform);
+	Triangle::SetViewProjection(m_Projection);
 }
 
 void Renderer::DrawLine(const std::vector<glm::vec2> points, std::shared_ptr<TGAImage>& image, const TGAColor& color)
@@ -17,19 +22,14 @@ void Renderer::DrawLine(const std::shared_ptr<Model>& model, std::shared_ptr<TGA
 	Line::Draw(model, image, color);
 }
 
-void Renderer::DrawMesh(const std::vector<glm::vec2> position, std::shared_ptr<TGAImage>& image, const TGAColor& color)
-{
-	//Triangle::Draw(position, image, color);
-}
-
 void Renderer::DrawMesh(const std::shared_ptr<Model>& model, std::shared_ptr<TGAImage>& image, const TGAColor& color)
 {
 	Triangle::Draw(model, image, color);
 }
 
-void Renderer::DrawMesh(const std::shared_ptr<Model> model, std::shared_ptr<TGAImage>& image, const Material& material, const Light& Light)
+void Renderer::DrawMesh(std::shared_ptr<TGAImage>& image, const MeshData& meshdata)
 {
-	Triangle::Draw(model,image, material, Light);
+	Triangle::Draw(image, meshdata);
 }
 
 

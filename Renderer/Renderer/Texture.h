@@ -17,9 +17,10 @@ public:
             printf("Loaded texture: %s (%d x %d)\n", filename.c_str(),
                 m_ImageTex->GetWidth(), m_ImageTex->GetHeight());
         }
+        m_ImageTex->flip_vertically();
     }
 
-    glm::vec4 GetColor(float u, float v) const {
+   const TGAColor& GetColor(float u, float v) const {
         if (!m_ImageTex) return glm::vec4(0.0f);
 
         // Clamp u,v to [0,1]
@@ -29,9 +30,9 @@ public:
         int x = static_cast<int>(u * (m_ImageTex->GetWidth() - 1));
         int y = static_cast<int>(v * (m_ImageTex->GetHeight() - 1));
 
-        TGAColor n = m_ImageTex->get(x, y);
+        return m_ImageTex->get(x, y);
         // 注意：颜色通常是 0-255，需归一化
-        return glm::vec4(n.r, n.g, n.b, n.a);
+     //   return glm::vec4(n.r, n.g, n.b, n.a);
     }
 
 private:
